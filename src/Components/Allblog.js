@@ -5,6 +5,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 const Allblog = (props) => {
     let data=props.data;
     let handleAddtoCart=props.handleAddtoCart
+    let totalTimecount=props.totalTimecount
     console.log(data)
     return (
         <div className='mb-3'>
@@ -30,7 +31,12 @@ const Allblog = (props) => {
                     <Card.Title>{data.description}</Card.Title>
                     
                     <p className='m-2'>#begineer<span style={{marginLeft:'10px'}}>#programming</span></p>
-                    <a href=''>Mark as read</a>
+                    
+                        <button  style={{background:'none',border:'none',borderBottom:'1px solid sky'}}
+                        className='text-primary'
+                        onClick={()=>totalTimecount(data.time)}>Mark as read</button>
+                   
+                   
                 </Card.Body>
              </Card>
         </div>

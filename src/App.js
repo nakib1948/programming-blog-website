@@ -9,8 +9,7 @@ import BookmarkBlog from './Components/BookmarkBlog';
 function App() {
    const [user,setUser]=useState([])
    const [getData,setgetData]=useState([])
-
-   let count=0
+   const [timecount,settimecount]=useState(0)
   
    useEffect(()=>{
     fetch('data.json')
@@ -22,9 +21,8 @@ function App() {
     setgetData([...getData,data])
    }
   
-   for(let i of getData)
-   {
-     count+=i.time
+   const totalTimecount=(totalTime)=>{
+      settimecount(timecount+totalTime)
    }
   return (
     <>
@@ -42,13 +40,18 @@ function App() {
       <Row>
         <Col sm={8}>
          {
-            user.map(user=><Allblog data={user} handleAddtoCart={handleAddtoCart}></Allblog>)
+            user.map(user=><Allblog data={user} 
+              
+            handleAddtoCart={handleAddtoCart}
+            totalTimecount={totalTimecount}>
+
+            </Allblog>)
          }
 
         </Col>
         <Col sm={4}>
           <div className='mb-4' style={{backgroundColor:'#F2F3F5'}}>
-              <p class="h4 p-3 text-primary">Spent time on read: {count} min</p>
+              <p class="h4 p-3 text-primary">Spent time on read: {timecount} min</p>
           </div>
           <div className='p-3 rounded' style={{backgroundColor:'#F2F3F5'}}>
               <p class="h4 p-3">Bookedmarked Blogs: {getData.length}</p>
