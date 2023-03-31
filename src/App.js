@@ -11,7 +11,7 @@ function App() {
    const [getData,setgetData]=useState([])
 
    let count=0
-
+  
    useEffect(()=>{
     fetch('data.json')
     .then(res=>res.json())
@@ -19,8 +19,9 @@ function App() {
    },[])
    
    const handleAddtoCart=(data)=>{
-      setgetData([...getData,data])
+    setgetData([...getData,data])
    }
+  
    for(let i of getData)
    {
      count+=i.time
@@ -47,11 +48,12 @@ function App() {
         </Col>
         <Col sm={4}>
           <div className='mb-4' style={{backgroundColor:'#F2F3F5'}}>
-              <p class="h4 p-3 rounded text-primary">Spent time on read: {count} min</p>
+              <p class="h4 p-3 text-primary">Spent time on read: {count} min</p>
           </div>
-          <div className='p-3'>
+          <div className='p-3 rounded' style={{backgroundColor:'#F2F3F5'}}>
+              <p class="h4 p-3">Bookedmarked Blogs: {getData.length}</p>
               {
-                getData.map(data=><BookmarkBlog data={data}></BookmarkBlog>)
+                getData.map(data=><BookmarkBlog data={data.description}></BookmarkBlog>)
               }
           </div>
         </Col>
