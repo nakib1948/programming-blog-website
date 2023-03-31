@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 const Allblog = (props) => {
     let data=props.data;
+    let handleAddtoCart=props.handleAddtoCart
     console.log(data)
     return (
         <div className='mb-3'>
@@ -22,7 +23,7 @@ const Allblog = (props) => {
                         </div>
                         <div className='d-flex'>
                             <p>{data.time} min read</p>
-                            <BookmarkBorderIcon></BookmarkBorderIcon>
+                            <BookmarkBorderIcon onClick={()=>handleAddtoCart(data)} ></BookmarkBorderIcon>
                         </div>
                         
                     </div>
