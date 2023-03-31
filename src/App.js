@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from 'react';
 import Allblog from './Components/Allblog';
 import BookmarkBlog from './Components/BookmarkBlog';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
    const [user,setUser]=useState([])
@@ -16,9 +18,21 @@ function App() {
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
-   
+   const showToastMessage = () => {
+    toast.success('You Have Already Bookmarked This Blog !', {
+      position: toast.POSITION.TOP_CENTER
+    });
+  };
    const handleAddtoCart=(data)=>{
-    setgetData([...getData,data])
+    const duplicate=getData.find(dt=> dt===data)
+    if(duplicate){
+      showToastMessage()
+      setgetData([...getData,data])
+    }
+    else{
+      setgetData([...getData,data])
+    }
+   
    }
   
    const totalTimecount=(totalTime)=>{
@@ -54,6 +68,7 @@ function App() {
               <p class="h4 p-3 text-primary">Spent time on read: {timecount} min</p>
           </div>
           <div className='p-3 rounded' style={{backgroundColor:'#F2F3F5'}}>
+              <ToastContainer />
               <p class="h4 p-3">Bookedmarked Blogs: {getData.length}</p>
               {
                 getData.map(data=><BookmarkBlog data={data.description}></BookmarkBlog>)

@@ -31,11 +31,13 @@ const Allblog = (props) => {
                     <Card.Title>{data.description}</Card.Title>
                     
                     <p className='m-2'>#begineer<span style={{marginLeft:'10px'}}>#programming</span></p>
-                    
+                       
+
+                        
                         <button  style={{background:'none',border:'none',borderBottom:'1px solid sky'}}
                         className='text-primary'
                         onClick={()=>totalTimecount(data.time)}>Mark as read</button>
-                   
+                      
                    
                 </Card.Body>
              </Card>
