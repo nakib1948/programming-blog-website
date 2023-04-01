@@ -31,7 +31,31 @@ const Blog = () => {
             </Card.Body>
             </Card>
 
-            
+            <Card className='mb-3'>
+            <Card.Body>
+                <Card.Title>Purpose of useEffect other than fetching data.</Card.Title>
+                <Card.Text>
+                 Besides fetching data, useEffect can be used for various other purposes such as updating the document title based on component state, adding and removing event listeners, managing timers and intervals within a component, animating components using CSS transitions or animations, implementing scroll position management, and handling authentication and authorization.
+
+                id bugs caused by stale data, and ensure that components behave correctly in different scenarios.
+                </Card.Text>
+              
+            </Card.Body>
+            </Card>
+              
+            <Card className='mb-3'>
+            <Card.Body>
+                <Card.Title>How Does React work?</Card.Title>
+                <Card.Text>
+                React works by allowing developers to create reusable components that can be rendered and   updated based on changes to their state or props.
+                React uses a virtual DOM to optimize the rendering of components by only updating the parts of the DOM that have changed, rather than re-rendering the entire page.
+                When a component's state or props change, React re-renders the component and updates the virtual DOM. It then calculates the difference between the new virtual DOM and the previous virtual DOM and applies the necessary changes to the real DOM.
+                React also provides a unidirectional data flow architecture, where data flows from the parent component to child components through props. This architecture makes it easier to reason about how data flows through the application and can help prevent bugs caused by conflicting state. Overall, React's component-based architecture and virtual DOM make it a powerful tool for building fast, scalable, and maintainable user interfaces.
+                </Card.Text>
+              
+            </Card.Body>
+            </Card>
+
 
             </Col>
         </Row>
