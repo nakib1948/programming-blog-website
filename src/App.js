@@ -7,6 +7,7 @@ import Allblog from './Components/Allblog';
 import BookmarkBlog from './Components/BookmarkBlog';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blog from './Components/Blog';
 
 function App() {
    const [user,setUser]=useState([])
@@ -79,6 +80,7 @@ function App() {
       
     </Container>
     
+    <Blog></Blog>
     </>
   );
 }
